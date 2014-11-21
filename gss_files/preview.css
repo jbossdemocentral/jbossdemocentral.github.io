@@ -1,0 +1,104 @@
+/*.popover {
+	background: #000000;
+	border-radius: 0;
+}
+
+.popover .popover-title {
+	background-color: #000000;
+	border-radius: 0;
+	color: #FFFFFF;
+}
+
+.popover.bottom .arrow:after {
+	border-bottom-color: #000000;
+}
+
+.popover .popover-content {
+	color: #FFFFFF;
+}*/
+
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    font-size: 1.3em;
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+    font-size: 0.9em;
+}
+
+blockquote code {
+    display: inline;
+    font-size: 0.7em;
+}
+
+
+.myLinkstyle {
+	color: #00FFFF;
+	text-decoration: underline;
+}
+
+.explainstyle {
+	color: #000000;
+	line-height: 150%;
+}
+
+ .raid0_input-warning{
+    position: relative;
+    left: 0;
+    width: 100%;
+    margin: 8px 0 12px;
+    margin: 0.5rem 0 0.75rem;
+    padding: 6px 12px 6px 32px;
+    padding: 0.375rem 0.75rem 0.375rem 2rem;
+    color: #000000;
+    background: #ffff66; }
+    /* line 38, ../../../sass/labs/sass/elements/_forms.scss */
+ .raid0_input-warning:before {
+      content: '\e604';
+      position: absolute;
+      left: 0;
+      width: 32px;
+      width: 2rem;
+      text-align: center;
+      color: #000000;
+      font-family: 'portalicons';
+      font-size: 12px;
+      font-size: 1.35rem;
+      line-height: 16.8px;
+      line-height: 3.05rem;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%; }
+
+.commandWrapper {
+    -moz-tab-size: 2;
+    background: none repeat scroll 0 0 #4E4E4E;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 0.6875rem;
+    line-height: 0.9625rem;
+    max-width: 100%;
+    padding: 1.25rem 1.25rem 0.625rem;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+}
+.popover {
+      max-width: 800px;
+      width: auto;
+}

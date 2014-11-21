@@ -1,0 +1,499 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/webassets/avalon/f/glyphicons-halflings-regular.eot');
+  src: url('/webassets/avalon/f/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('/webassets/avalon/f/glyphicons-halflings-regular.woff') format('woff'),
+       url('/webassets/avalon/f/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('/webassets/avalon/f/glyphicons-halflings-regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+ * Bootstrap 3 Overrides
+==========================*/
+
+/* fix 3's box-sizing: border-box; rule */
+*, *:before, *:after,
+#sidebar-toggle, aside#sidebar,
+.dataTables_paginate .fg-button,
+.views-widget,
+aside#sidebar *,
+aside#sidebar *:before,
+aside#sidebar *:after { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+/* navbar is a shared class with 3. this prevent their autostyling of a min-height of 50. */
+#navPrimary.v2 { min-height: 0; border: 0; }
+.dropdown-menu { font-size: 1em; }
+
+.modal { bottom: auto; overflow-y: auto; } /* fix the odd 100% height issue with B3 and B2 clashing. */
+
+/* turn 3 back on inside the content area */
+html.bootstrap3 #main *,
+html.bootstrap3 #main *:before,
+html.bootstrap3 #main *:after,
+.content-area *,
+.content-area *:before,
+.content-area *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/* fix vertical sizing of Chosen.js containers */
+html.bootstrap3 #main .chosen-container *,
+html.bootstrap3 #main .chosen-container *:before,
+html.bootstrap3 #main .chosen-container *:after,
+.content-area .chosen-container *,
+.content-area .chosen-container *:before,
+.content-area .chosen-container *:after { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* fix tables */
+table th {
+  border-bottom: 0;
+}
+.table-bordered {
+	border-collapse: collapse;
+}
+#main #doc .section .region .node div.field table td {
+  border: 0; /* fix KCS styling */
+  border-top: 1px solid #ddd;
+}
+
+code {
+	font-size: 90%; /* adding back B3's smaller font-size for monospace fonts */
+	line-height: 1.5em;
+}
+
+/*
+ * Global.css Overrides
+==========================*/
+
+h1 { padding: 0; margin-bottom: 20px; }
+h2, h3, h4, h5 { padding: 0; margin-bottom: 10px; }
+h1 sup, h2 sup { vertical-align: top; display: inline-block; margin: .5em 0 0 .25em; }
+
+h1, h2, h3, h4, h5, h6,
+#navPrimary {
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove pesky .outgoing link icon */
+.product-page a.outgoing {
+  background: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+/* Fix header margins on Product Pages */
+.product-page-content h2,
+.product-page-content h3 {
+  margin-top: 20px;
+}
+.product-page-content h4,
+.product-page-content h5,
+.product-page-content h6 {
+  margin-top: 10px;
+}
+.product-page-content > h2:first-child,
+.product-page-content h2.product-page-title {
+	margin-top: 0;
+}
+
+/* Fix link colors, etc. */
+body { color: #333; }
+a { color: #06c; text-decoration: none; }
+a:hover, a:visited { color: #03c; }
+.code pre > code {
+	padding: 2px 4px;
+	color: #c7254e;
+	white-space: nowrap;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+}
+
+/* temporary fix for horrendous default class in global.css */
+#main p + ul {
+	margin-top: 0 !important;
+}
+
+/* This issue happens in the sidebar in KCS. */
+fieldset.collapsible .fieldset-legend {	display: inline-block; }
+
+#main ul.nav { margin: 0; padding: 0; }
+
+/* pulled in from bootstrap-pieces */
+.row { margin-left: -15px; margin-right: -15px; }
+
+/* Fix Product Page Banners */
+.with-tagline h2 { margin-bottom: 5px; }
+
+/* Fix Bootstrap3 btn-group */
+#main .input-group-btn:last-child>.btn {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: -1px;
+}
+#main .browse-options .input-group-btn:last-child>.btn {
+  height: 29px;
+}
+
+
+/*
+ * Portal v3 Additions for Bootstrap 3
+========================================*/
+
+.overpass { font-family: Overpass, "Liberation Sans", "Trebuchet MS", "Bitstream Vera Sans", helvetica, verdana, arial, sans-serif; }
+.label-sm { font-size: 1rem; vertical-align: middle; }
+
+/* Fluid cols are width agnostic yet behave like columns */
+/* Must be last after its sibling columns. Use pull-right on sibling to make col-fluid the center column */
+.col-fluid {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: table; /* fix margin bleed, prevent background bleeds, and no wrap around neighboring floats */
+}
+
+/* v3 boxes-columns look-alike */
+.col-box {
+	margin-bottom: 30px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+	h2.bordered,
+	h3.bordered,
+	h4.bordered { padding-bottom: 10px; border-bottom: 1px solid #ccc; }
+
+	.col-box > h2:first-child,
+	.col-box > h3:first-child,
+	.col-box > h4:first-child { margin-top: 0; }
+	.col-box > h2.bordered,
+	.col-box > h3.bordered,
+	.col-box > h4.bordered { margin: 20px -20px 20px; padding: 10px 20px; border-top: 1px solid #ccc; font-size: 1.077em; line-height: 1.2em; text-transform: uppercase; }
+	.col-box > h2.bordered:first-child,
+	.col-box > h3.bordered:first-child,
+	.col-box > h4.bordered:first-child { margin-top: -20px; padding: 13px 20px; border-top: 0; }
+
+	.col-box .grey-header {
+		background: #f4f4f4;
+		-webkit-border-top-left-radius: 6px;
+		-webkit-border-top-right-radius: 6px;
+		-moz-border-radius-topleft: 6px;
+		-moz-border-radius-topright: 6px;
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+	}
+
+.col-bordered { }
+.col-bordered-left { border-left: 1px solid #ccc; }
+.col-bordered-right { border-right: 1px solid #ccc; }
+	*[class*="col-bordered"] > h2:first-child,
+	*[class*="col-bordered"] > h3:first-child,
+	*[class*="col-bordered"] > h4:first-child { margin-top: 10px; }
+
+@media (max-width: 992px) {
+	/* when too small, remove borders */
+	.col-bordered-left,
+	.col-bordered-right { border: 0; }
+}
+
+.col-padded { padding: 0 35px; }
+.col-padded-right { padding-right: 35px; }
+.col-padding-left { padding-left: 35px; }
+
+.row-bordered:before {
+	display: block;
+	margin: 0 15px;
+	content: "";
+	padding-top: 3em;
+	margin-top: 3em;
+	border-top: 1px solid #ccc;
+}
+.row-bordered-slim:before {
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.row-bordered-lg:before {
+	margin-top: 30px;
+	padding-top: 30px;
+}
+.row-bordered-sm-lg:before {
+	margin-top: 10px;
+	padding-top: 30px;
+}
+.row-bordered-md:before {
+	margin-top: 20px;
+	padding-top: 20px;
+}
+.row-bordered-sm:before {
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.push-bottom {
+	margin-bottom: 30px;
+}
+.push-top {
+	margin-top: 30px;
+}
+
+/* Adjusting UL's for row/col */
+#main ul.row {
+	position: relative;
+	margin: 0 -15px;
+	padding: 0;
+	list-style: none;
+}
+#main ul.col-border-row {
+	margin-left: -30px;
+ 	margin-right: -30px;
+}
+#main ul.row li[class*="col-"] {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+#main ul.row li.col-border {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+
+/* =$Component: Helper additions to "Alerts" */
+.alert [class*="icon-"] {
+    font-size: 1.231em; /* 16px relative to 13px base */
+    margin-right: .25em;
+    vertical-align: middle;
+}
+.alert > p,
+.alert > ul,
+#main .alert > ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#main .alert > p + ul {
+	margin-top: 5px !important;
+}
+/* =/Component: Helper additions to "Alerts" */
+
+/* =$Component: Feature-table */
+table.feature-table {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+}
+table.feature-table th {
+  width: 25%;
+}
+#main #doc .region .node div.field table.feature-table td {
+  border-left: 1px solid #ddd;
+}
+.feature-more-link {
+  font-size: 0.857em; /* 12px */
+}
+/* =/Component: Feature-table */
+
+.fineprint {
+    padding: 15px;
+    color: #8c8c8c;
+    font-size: 0.846em;
+    border: 1px solid #dedede;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #f2f2f2;
+}
+
+/* =Helper Classes */
+.link-blank:after,
+.link-outgoing:after {
+    margin-left: .25em;
+    font-family: 'portalicons';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+}
+.link-blank:after,
+.link-outgoing:after {
+    content: "\27";
+}
+
+.strapline {
+	display: block;
+	font-size: 0.846em;
+	font-weight: normal;
+}
+.title-strapline {
+	font-size: 0.538em;
+	text-transform: none;
+}
+.titling-sm {
+	font-size: 0.684em;
+	line-height: 1em;
+}
+.titling-br {
+	display: block;
+}
+
+.cell-right,
+.table .cell-right {
+  text-align: right;
+}
+.cell-center,
+.table .cell-center {
+  text-align: center;
+}
+.th-pct10,
+table.feature-table th.th-pct10 {
+  width: 10%;
+}
+.th-pct20,
+table.feature-table th.th-pct20 {
+  width: 20%;
+}
+.th-pct25,
+table.feature-table th.th-pct25 {
+  width: 25%;
+}
+.th-pct30,
+table.feature-table th.th-pct30 {
+  width: 30%;
+}
+.th-pct40,
+table.feature-table th.th-pct40 {
+  width: 40%;
+}
+.th-pct50,
+table.feature-table th.th-pct50 {
+  width: 50%;
+}
+
+.badge-error,
+.badge-danger {
+  background-color: #b94a48;
+}
+.badge-warning {
+  background-color: #f89406;
+}
+.badge-success {
+  background-color: #468847;
+}
+.badge-info {
+  background-color: #3a87ad;
+}
+.badge-inverse {
+  background-color: #333;
+}
+
+/* =$Component: Knowledge list (to replace KCS listing styles) */
+#main .knowledge-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#main .knowledge-list li {
+	position: relative;
+	clear: left;
+	margin: 0 0 1.5em;
+	padding: 0 0 0 24px; /* for icon */
+}
+
+.knowledge-list .knowledge-title {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	line-height: 1.5em;
+	font-weight: normal;
+}
+
+.knowledge-list > span[class*="icon-"],
+.knowledge-list .knowledge-title > span[class*="icon-"] {
+	position: absolute;
+	left: 0;
+	top: 1px;
+	float: left;
+	font-size: 16px;
+}
+
+.knowledge-meta { /* same as teaser-meta */
+	color: #777;
+	font-style: normal;
+	font-size: 91.67%;
+	line-height: 17px;
+	margin-top: .5em;
+	white-space: normal;
+}
+.knowledge-meta-item {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.knowledge-meta .separator {
+	height: 0;
+	position: absolute;
+	left: -9000em;
+}
+/* =/Component: Knowledge list (to replace KCS listing styles) */
+/* =$Component: Download Module */
+.module-download .specs {
+	float: left;
+	margin: 0 8px 10px 0;
+	font-size: 0.846em;
+	padding-right: 8px;
+	border-right: 1px solid #e8e8e8;
+}
+	.module-download dl.type {
+		margin-right: 0;
+		padding-right: 0;
+		border: 0;
+	}
+	.module-download dt,
+	.module-download dd {
+		margin: 0;
+	}
+
+.module-download .btn-browse {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.module-download-other {
+	clear: both;
+	font-size: 0.846em;
+}
+.module-download-other:last-child {
+	margin-bottom: 0;
+}
+/* =/Component: Download Module */
+
+/* =$Component: Stacked Icons for NEXT theme */
+.stacked-icon {
+	position: relative;
+	display: inline-block;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background: #f1f1f1;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+}
+.stacked-icon:before {
+	line-height: 2em;
+}
+/* =/Component: Stacked Icons for NEXT theme */
+/* =$Modifier: Stacked Icons for icon-header component and large/medium sizes */
+.icon-header > span.stacked-icon {
+	color: #333 !important;
+}
+.icon-header > span.stacked-icon-md,
+.stacked-icon-md {
+	font-size: 24px;
+}
+.icon-header > span.stacked-icon-lg,
+.stacked-icon-lg {
+	font-size: 36px;
+}
+/* =/Modifier: Stacked Icons for icon-header component and large/medium sizes */
