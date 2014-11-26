@@ -82,6 +82,11 @@ var getDemoConfig = function(demo, $http, $scope) {
 		if(config!=null && config.published) {
 			if(config.name!=null) 
 				demo.name=config.name;
+			if(config.img_src!=null) {
+				demo.has_image=true;
+				demo.img_src=config.img_src;
+			}
+			
 			demo.level = config.level;
 			demo.description = config.summary;
 			demo.author = config.author;
