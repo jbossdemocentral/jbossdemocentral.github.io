@@ -80,6 +80,8 @@ var getDemoConfig = function(demo, $http, $scope) {
 		});
 		var config = JSON.parse(atob(encodedData));
 		if(config!=null && config.published) {
+			if(config.name!=null) 
+				demo.name=config.name;
 			demo.level = config.level;
 			demo.description = config.summary;
 			demo.author = config.author;
@@ -113,26 +115,6 @@ app.filter('matchStringAndString', function () {
   return function (items, searchStr1, searchStr2) {
 	  return items.filter(function (item) {
 		  return item.name.match(searchStr1) && item.name.match(searchStr2);
-	  });
-  }
-});
-
-app.filter('hasDemoConfig', function () {
-  return function (items) {
-	  return items.filter(function (item) {
-		  var hasConfig=false;
-		  $http.get(item.url + "/contents").success(function(response) {
-			  alert(response.status);
-			  response.filter(function(file) {
-				  alert(file.name);
-				  if(file.name=="demo-config.json")
-					hasConfig=true;
-			}).error(function (data, status) {
-		        console.log('Error ' + data);
-		    }); 
-		  });
-		  //return item.name.match(searchStr1) && item.name.match(searchStr2);
-		  return hasConfig;
 	  });
   }
 });

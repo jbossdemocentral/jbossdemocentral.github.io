@@ -4,7 +4,7 @@
 		<!-- Main area for content -->
 		<h1>JBoss Enterprise Application Platform Demos</h1>
 		<p>Here you can find demos and labs that are built for JBoss Enterprise Application Platform</p>		
-		<div class="row" ng-repeat="eapdemo in demos track by eapdemo.id" >
+		<div class="row" ng-repeat="demo in demos track by demo.id" >
 			<div class="app-block app-block-guided col-xs-12">
 				<div class="content">
 					<div class="row" >					
@@ -19,6 +19,9 @@
 						</tr>
 						<tr>
 							<td><b>Product(s): </b></td><td>{{demo.targetProduct}}</td>
+						</tr>
+						<tr>
+							<td><b>Prerequisites: </b></td><td>{{demo.prerequisites}}</td>
 						</tr>
 						<tr>
 							<td><b>Author: </b></td><td>{{demo.author}}</td>

@@ -4,28 +4,31 @@
 		<!-- Main area for content -->
 		<h1>JBoss Data Grid Demos</h1>
 		<p>Here you can find some of the demos and labs that are built for JBoss Data Grid</p>		
-		<div class="row" ng-repeat="jdgdemo in demos track by jdgdemo.id" >
+		<div class="row" ng-repeat="demo in demos track by demo.id" >
 			<div class="app-block app-block-guided col-xs-12">
 				<div class="content">
 					<div class="row" >
 						
-						<h3>{{jdgdemo.name}}</h3>												
-						<p>{{jdgdemo.description}}</p>
+						<h3>{{demo.name}}</h3>												
+						<p>{{demo.description}}</p>
 						<table>
 						<tr>
-							<td><b>Level: </b></td><td>{{jdgdemo.level}}</td>
+							<td><b>Level: </b></td><td>{{demo.level}}</td>
 						</tr>
 						<tr>
-							<td><b>Technologies(s):</b></td><td><span ng-repeat="technology in jdgdemo.technologies">{{technology}}, </span></td>
+							<td><b>Technologies(s):</b></td><td><span ng-repeat="technology in demo.technologies">{{technology}}, </span></td>
 						</tr>
 						<tr>
-							<td><b>Product(s): </b></td><td>{{jdgdemo.targetProduct}}</td>
+							<td><b>Product(s): </b></td><td>{{demo.targetProduct}}</td>
 						</tr>
 						<tr>
-							<td><b>Author: </b></td><td>{{jdgdemo.author}}</td>
+							<td><b>Prerequisites: </b></td><td>{{demo.prerequisites}}</td>
+						</tr>
+						<tr>
+							<td><b>Author: </b></td><td>{{demo.author}}</td>
 						</tr>
 						</table>
-						<a ng-href="{{link.url}}" ng-repeat="link in jdgdemo.links" >
+						<a ng-href="{{link.url}}" ng-repeat="link in demo.links" >
 							<button class="btn btn-primary next" style="left: 65%">{{link.name}}</button>
 						</a>
 					</div>
