@@ -51,7 +51,6 @@ app.controller('JDGCtrl', function ($scope, $http) {
     	var demos = repos.filter(function(repo) {
     		 return repo.name.match("DATAGRID");
     	});
-    	$scope.demos=demos;
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
     }).error(function (data, status) {
@@ -66,7 +65,6 @@ app.controller('EAPCtrl', function ($scope, $http) {
     	var demos = repos.filter(function(repo) {
     		 return repo.name.match("EAP");
     	});
-    	$scope.demos=demos;
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
     }).error(function (data, status) {
@@ -81,15 +79,17 @@ var getDemoConfig = function(demo, $http, $scope) {
 			encodedData+=part;
 		});
 		var config = JSON.parse(atob(encodedData));
-		demo.level = config.level;
-		demo.description = config.summary;
-		demo.author = config.author;
-		demo.prerequisites = config.prerequisites;
-		demo.targetProduct = config.targetProduct;
-		demo.productVersion = config.productVersion;
-		demo.technologies =  config.technologies;
-		demo.links = config.links;
-		$scope.demos.push(demo);
+		if(config!=null) {
+			demo.level = config.level;
+			demo.description = config.summary;
+			demo.author = config.author;
+			demo.prerequisites = config.prerequisites;
+			demo.targetProduct = config.targetProduct;
+			demo.productVersion = config.productVersion;
+			demo.technologies =  config.technologies;
+			demo.links = config.links;
+			$scope.demos.push(demo);
+		}
 	});
 }
     
