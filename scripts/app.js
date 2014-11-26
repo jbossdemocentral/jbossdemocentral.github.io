@@ -49,7 +49,7 @@ app.controller('JDGCtrl', function ($scope, $http) {
 	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
-    		 return repo.name.match("DATAGRID");
+    		 return repo.name.toUpperString().match("DATAGRID");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
@@ -63,7 +63,7 @@ app.controller('EAPCtrl', function ($scope, $http) {
 	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
-    		 return repo.name.match("EAP");
+    		 return repo.name.toUpperString().match("EAP");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
@@ -79,7 +79,7 @@ var getDemoConfig = function(demo, $http, $scope) {
 			encodedData+=part;
 		});
 		var config = JSON.parse(atob(encodedData));
-		if(config!=null) {
+		if(config!=null && config.published) {
 			demo.level = config.level;
 			demo.description = config.summary;
 			demo.author = config.author;
