@@ -49,7 +49,7 @@ app.controller('JDGCtrl', function ($scope, $http) {
 	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
-    		 return repo.name.toUpperString().match("DATAGRID");
+    		 return repo.name.toUpperCase().match("DATAGRID");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
@@ -63,7 +63,7 @@ app.controller('EAPCtrl', function ($scope, $http) {
 	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
-    		 return repo.name.toUpperString().match("EAP");
+    		 return repo.name.toUpperCase().match("EAP");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
