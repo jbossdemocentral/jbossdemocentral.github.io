@@ -1,59 +1,22 @@
 <!DOCTYPE html>
-<html class="chrometwo bootstrap3 next chrometwoComplete">
+<html class="chrometwo bootstrap3 next chrometwoComplete" ng-app="jbossdemocentral">
 <head>
 <link rel="stylesheet" type="text/css" media="all" href="gss_files/style.css">
 <link rel="stylesheet" type="text/css" media="all" href="gss_files/bootstrap3_002.css">
-
-<!-- metaInclude -->
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<!-- /metaInclude -->
-<!--[if (!IE)|(gte IE 9)]><!-->
-<link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/font_faces.css">
-<!--<![endif]-->
-<!--[if lte IE 8]>
-						<link rel="stylesheet" type="text/css" media="screen, print" href="https://access.redhat.com/chrome_themes/umbra/s/font_faces_ie8.css?version=2.0.13.3" />
-					<![endif]-->
-
-
-<link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/global.css">
-<link rel="stylesheet" type="text/css" media="print" href="gss_files/print.css">
-
-<!-- cssInclude -->
 <link rel="shortcut icon" href="https://access.redhat.com/webassets/avalon/g/favicon.ico">
-<link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/jquery-ui-1.css">
-
 <link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/bootstrap-pieces.css">
 <link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/nav-main.css">
 <link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/header-graphics.css">
 <link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/boxes-columns.css">
 <link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/product-page.css">
 <link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/extra-icons.css">
-<!--[if lte IE 7]><script src="https://access.redhat.com/webassets/avalon/j/lib/icon.extra.font.ie7.js"></script><![endif]-->
-<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-<link rel="stylesheet" type="text/css" media="all" href="gss_files/bootstrap3.css">
-<!-- /cssInclude -->
-<!--[if lte IE 8]&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen, print&quot; href=&quot;https://access.redhat.com/chrome_themes/umbra/s/ielte8.css?version=2.0.13.3&quot; /&gt;&lt;![endif]-->
-<!--[if lte IE 7]&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen, print&quot; href=&quot;https://access.redhat.com/chrome_themes/umbra/s/ielte7.css?version=2.0.13.3&quot; /&gt;&lt;![endif]-->
-
-<title>JBoss Demo Central</title>
-<link rel="stylesheet" type="text/css" media="all" href="gss_files/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="screen, print" href="gss_files/global.css">
 <link rel="stylesheet" type="text/css" media="all" href="gss_files/bootstrap3_003.css">
 <link rel="stylesheet" type="text/css" media="all" href="gss_files/labs.css">
-<link rel="stylesheet" type="text/css" media="all" href="gss_files/preview.css">
-
-<script src="gss_files/elqCfg_002.js" async="" type="text/javascript"></script>
-<script type="text/javascript" src="gss_files/require.js"></script>
-
-<script type="text/javascript" src="gss_files/app.js"></script>
-<script type="text/javascript" src="gss_files/angular.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>JBoss Demo Central</title>
 </head>
 <body class="chrometwo chrometwoComplete en loggedIn portal-labs">
-
-	<!-- static file added for DV Sizing Application -->
-
 	<div id="outer-wrapper" class="wrapo">
 		<div id="wrapper" class="wrapo">
 			<div class="wrapi" id="header-wrap">
@@ -69,17 +32,10 @@
 					</div>
 					<!-- /brand -->
 					<div class="clearWrap" id="navWrap">
-						<div id="navPrimary" class="v2 navbar gradient">
+						<div id="navPrimary" class="v2 navbar gradient" ng-controller="TabsCtrl">
 							<div class="navbar-inner">
 								<ul class="nav">
-									<li id="navstart" class="" ><a href="index.html">Start</a></li>
-									<li id="navstart" class="" ><a href="eap-demos.html">EAP Demos</a></li>
-									<li id="navstart" class="" ><a href="datagrid-demos.html">Data Grid Demos</a></li>
-									<li id="navstart" class="" ><a href="bpms-demos.html">BPM Suite Demos</a></li>
-									<li id="navstart" class="" ><a href="brms-demos.html">BRMS Demos</a></li>
-									<li id="navFuse" class="" ><a href="fuse-demos.html">Fuse Demos</a></li>
-									<li id="navBRMS" class="" ><a href="fsw-demos.html">FSW Demos</a></li>
-									<li id="navBRMS" class="" ><a href="dv-demos.html">DV Demos</a></li>
+									<li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}"><a href="{{tab.url}}" ng-click="onClickTab(tab)">{{tab.title}}</a></li>
 								</ul>
 							</div>
 						</div>
@@ -88,39 +44,20 @@
 			</div>
 			<div id="main-wrap" class="wrapu">
 				<div class="wrapi">
-					<div id="container" class="clearWrap">
-						<div id="content" class="c-mF">
-							<ul id="notices" class="message"></ul>
-							<div id="main" style="visibility: visible;">
-
-								<div id="content-area">
-									<div>
-										<h1>Welcome to JBoss Demo Central</h1>
-										<p class="exlainstyle">This is the central location for all public JBoss Demos. Please note that we are still under construction, expect more demos shortly.</p>
-															
-										<p class="exlainstyle">The maintainer of the JBoss Demo Central are:</p>
-
-										<ul>
-											<li>Thomas Qvarnstr&ouml;m</li>
-											<li>Kenny Peeples</li>
-											<li>Eric D. Schabell</li>
-											<li>Christina Lin</li>
-										</ul>
-										 
-										<h2>Contribution</h2>
-										<p class="exlainstyle">We are grateful for all the contribution that we can get. If you like to contribute to an existing demo project just fork it's repo and do a pull request, and if you want to contribute with your own demo contact us and we can either add you to the organization or create a new repo that you can fork and do pull requests to.</p>
-									</div>
-								</div>										
-							</div>
-						</div>
+					<div id="container" class="clearWrap" ng-view="">
+						
 					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
-
+<script src="js/jquery.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/angular-cookies.js"></script>
+<script src="js/angular-sanitize.js"></script>
+<script src="js/angular-resource.js"></script>
+<script src="scripts/app.js"></script>
 </body>
-</html>									
-
-		
+</html>
