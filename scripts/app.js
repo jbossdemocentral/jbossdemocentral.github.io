@@ -19,7 +19,8 @@ app.config(function ($routeProvider) {
     }).when('/brms',{
     	templateUrl: 'views/brms.html'
     }).when('/fuse',{
-    	templateUrl: 'views/fuse.html'
+    	templateUrl: 'views/fuse.html',
+    	controller: 'FUSECtrl'
     }).when('/fsw',{
     	templateUrl: 'views/fsw.html'
     }).when('/dv',{
@@ -50,6 +51,20 @@ app.controller('JDGCtrl', function ($scope, $http) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
     		 return repo.name.toUpperCase().match("DATAGRID");
+    	});
+    	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
+    	
+    }).error(function (data, status) {
+        console.log('Error ' + data);
+    });  
+});
+
+app.controller('FUSECtrl', function ($scope, $http) {
+    $scope.demos = new Array();
+	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
+    	//filter on name
+    	var demos = repos.filter(function(repo) {
+    		 return repo.name.toUpperCase().match("FUSE");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
