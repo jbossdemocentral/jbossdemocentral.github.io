@@ -25,13 +25,15 @@ app.config(function ($routeProvider) {
     	templateUrl: 'views/fsw.html'
     }).when('/dv',{
     	templateUrl: 'views/dv.html'
+    }).when('/integrated',{
+    	templateUrl: 'views/integrated.html'
     }).otherwise({
         redirectTo: '/'
     });
 });
 
 app.controller('TabsCtrl', ['$scope', function ($scope) {
-    $scope.tabs = [{title: 'Start',url: '#'}, {title: 'JBoss EAP Demos',url: '#eap'}, {title: 'DataGrid Demos',url: '#datagrid'}, {title: 'BPM Suite Demos',url: '#bpms'}, {title: 'BRMS Demos',url: '#brms'},{title: 'Fuse Demos',url: '#fuse'},{title: 'FSW Demos',url: '#fsw'},{title: 'DV Demos',url: '#dv'}];
+    $scope.tabs = [{title: 'Start',url: '#'},{title: 'Integrated Demos',url: '#integrated'}, {title: 'JBoss EAP Demos',url: '#eap'}, {title: 'DataGrid Demos',url: '#datagrid'}, {title: 'BPM Suite Demos',url: '#bpms'}, {title: 'BRMS Demos',url: '#brms'},{title: 'Fuse Demos',url: '#fuse'},{title: 'FSW Demos',url: '#fsw'},{title: 'DV Demos',url: '#dv'}];
 
     $scope.currentTab = '#';
 
