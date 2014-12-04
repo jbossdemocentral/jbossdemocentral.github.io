@@ -61,7 +61,7 @@ app.controller('JDGCtrl', function ($scope, $http) {
 
 app.controller('FUSECtrl', function ($scope, $http) {
     $scope.demos = new Array();
-	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
+	$http.get('https://api.github.com/orgs/jbossdemocentral/repos?per_page=200').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
     		 return repo.name.toUpperCase().match("FUSE");
@@ -75,7 +75,7 @@ app.controller('FUSECtrl', function ($scope, $http) {
 
 app.controller('EAPCtrl', function ($scope, $http) {
     $scope.demos = new Array();
-	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
+	$http.get('https://api.github.com/orgs/jbossdemocentral/repos?per_page=200').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo) {
     		 return repo.name.toUpperCase().match("EAP");
