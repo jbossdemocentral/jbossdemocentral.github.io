@@ -47,9 +47,9 @@ app.controller('TabsCtrl', ['$scope', function ($scope) {
 
 app.controller('JDGCtrl', function ($scope, $http) {
     $scope.demos = new Array();
-	$http.get('https://api.github.com/orgs/jbossdemocentral/repos').success(function (repos) {
+	$http.get('https://api.github.com/orgs/jbossdemocentral/repos?per_page=200').success(function (repos) {
     	//filter on name
-    	var demos = repos.filter(function(repo) {
+    	var demos = repos.filter(function(repo, status, headers, config) {
     		 return repo.name.toUpperCase().match("DATAGRID");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
