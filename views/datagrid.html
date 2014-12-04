@@ -12,13 +12,16 @@
 						<p>{{demo.description}}</p>
 						<table>
 						<tr>
-							<td><b>Level: </b></td><td>{{demo.level}}</td><td rowspan="5" style="padding-left:50px" ng-if="demo.has_image"><img src="{{demo.img_src}}"></td>
+							<td><b>Level: </b></td><td>{{demo.level}}</td><td rowspan="5" style="padding-left:50px" ng-if="demo.has_image"></td>
 						</tr>
 						<tr>
 							<td><b>Technologies(s):</b></td><td><span ng-repeat="technology in demo.technologies">{{technology}}, </span></td>
 						</tr>
 						<tr>
 							<td><b>Product(s): </b></td><td>{{demo.targetProduct}}</td>
+						</tr>
+						<tr>
+							<td><b>Product Version(s): </b></td><td>{{demo.productVersion}}</td>
 						</tr>
 						<tr>
 							<td><b>Prerequisites: </b></td><td>{{demo.prerequisites}}</td>
