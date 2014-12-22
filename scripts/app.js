@@ -27,7 +27,7 @@ app.config(function ($routeProvider) {
     	templateUrl: 'views/dv.html'
     }).when('/integrated',{
     	templateUrl: 'views/integrated.html',
-	controller: 'INTEGRATEDCtrl'
+	controller: 'INTEGRATIONCtrl'
     }).otherwise({
         redirectTo: '/'
     });
@@ -63,12 +63,12 @@ app.controller('JDGCtrl', function ($scope, $http) {
 });
 
 
-app.controller('INTEGRATEDCtrl', function ($scope, $http) {
+app.controller('INTEGRATIONCtrl', function ($scope, $http) {
     $scope.demos = new Array();
 	$http.get('https://api.github.com/orgs/jbossdemocentral/repos?per_page=200').success(function (repos) {
     	//filter on name
     	var demos = repos.filter(function(repo, status, headers, config) {
-    		 return repo.name.toUpperCase().match("INTEGRATED");
+    		 return repo.name.toUpperCase().match("INTEGRATION");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
