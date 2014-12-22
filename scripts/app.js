@@ -26,7 +26,8 @@ app.config(function ($routeProvider) {
     }).when('/dv',{
     	templateUrl: 'views/dv.html'
     }).when('/integrated',{
-    	templateUrl: 'views/integrated.html'
+    	templateUrl: 'views/integrated.html',
+	controller: 'INTEGRATEDCtrl'
     }).otherwise({
         redirectTo: '/'
     });
@@ -53,6 +54,21 @@ app.controller('JDGCtrl', function ($scope, $http) {
     	//filter on name
     	var demos = repos.filter(function(repo, status, headers, config) {
     		 return repo.name.toUpperCase().match("DATAGRID");
+    	});
+    	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
+    	
+    }).error(function (data, status) {
+        console.log('Error ' + data);
+    });  
+});
+
+
+app.controller('INTEGRATEDCtrl', function ($scope, $http) {
+    $scope.demos = new Array();
+	$http.get('https://api.github.com/orgs/jbossdemocentral/repos?per_page=200').success(function (repos) {
+    	//filter on name
+    	var demos = repos.filter(function(repo, status, headers, config) {
+    		 return repo.name.toUpperCase().match("INTEGRATED");
     	});
     	demos.forEach(function(demo) { getDemoConfig(demo,$http,$scope) });
     	
