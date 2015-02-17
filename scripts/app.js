@@ -32,7 +32,7 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('TabsCtrl', ['$scope', function ($scope) {
-    $scope.tabs = [{title: 'Start',url: '#'},{title: 'Integration Demos',url: '#integrated'}, {title: 'JBoss EAP Demos',url: '#eap'}, {title: 'DataGrid Demos',url: '#datagrid'}, {title: 'BPM Suite Demos',url: '#bpms'}, {title: 'BRMS Demos',url: '#brms'},{title: 'Fuse Demos',url: '#fuse'},{title: 'DV Demos',url: '#dv'}];
+    $scope.tabs = [{title: 'Start',url: '#'},{title: 'Multi product',url: '#integrated'}, {title: 'JBoss EAP',url: '#eap'}, {title: 'DataGrid',url: '#datagrid'}, {title: 'BPM Suite',url: '#bpms'}, {title: 'BRMS',url: '#brms'},{title: 'Fuse',url: '#fuse'},{title: 'Data Virtualization',url: '#dv'}];
 
     $scope.currentTab = '#';
 
